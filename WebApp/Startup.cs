@@ -41,9 +41,16 @@ namespace WebApp
             });
 
             //injection for In Memory data store
-            services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
-            services.AddScoped<IProductRepository, ProductInMemoryRepository>();
-            services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
+            //services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+            //services.AddScoped<IProductRepository, ProductInMemoryRepository>();
+            //services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
+            //CTRL+K+C -> COMMENT ALL BLOCK
+
+            //Dependency infections for ef core datat store sql
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
+            //CTRL+K+U TO UNDO COMMENT
 
             //for use cases and repositories
             services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCases>();
